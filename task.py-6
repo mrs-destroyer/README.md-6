@@ -1,0 +1,297 @@
+# 1.Introduction to DataTypes
+# Python strings
+str = "Hello World!"
+st = 'a'
+print(type(str))
+
+#Python List (all list methods)
+#1.append()
+people : list[str] = ['Asad' , 'Aslam' , 'Ali']
+people.append('Ahmad')
+print(people)
+#2.clear()
+people : list[str] = ['Asad' , 'Aslam' , 'Ali']
+people.clear()
+print(people)
+#3.copy()
+people : list[str] = ['Asad' ,['Aslam' , 'Ahmad']  , 'Ali']
+copy_people: list[str] = people.copy()
+copy_people.remove('Ali')
+copy_people[1][1] = 'Akram'
+print(people)
+print(copy_people)
+#4.count()
+people : list[str] = ['Asad' , 'Ahmad' , 'Aslam' , 'Ali']
+Ahmad = people.count('Ahmad')
+print(Ahmad)
+Akram = people.count('Akram')
+print(Akram)
+#5.extend()
+people : list[str] = ['Asad' , 'Ahmad' , 'Aslam' , 'Ali']
+people2 : list[str] = ['Akram' , 'Sahil']
+people.extend(people2)
+print(people)
+#6.index()
+people : list[str] = ['Asad' , 'Aslam' , 'Ali']
+print(people.index('Asad'))
+print(people.index('Ali'))
+#7.insert()
+people : list[str] = ['Asad' , 'Ahmad' , 'Aslam' , 'Ali']
+people.insert(1,'Sahil')
+print(people)
+people.insert(5, 'Akram')
+print(people)
+#8..insert()
+people : list[str] = ['Asad' , 'Ahmad' , 'Sahil' , 'Ali']
+popped = people.pop(1)
+print(people)
+print(popped)
+#9.remove()
+people : list[str] = ['Asad' , 'Ahmad' , 'Ali' , 'Sahil']
+people.remove('Ali')
+print(people)
+#10.reverse()
+people : list[str] = ['Asad' , 'Ahmad' , 'Sahil' , 'Ali']
+people.reverse()
+print(people)
+#11.sort()
+people : list[str] = ['Saad' , 'Ahmad' , 'Ibraheem' , 'Fahad']
+people.sort()
+print(people)
+people.sort(key=lambda name:len(name))
+print(people)
+
+# Python Tuples
+t = (4 , 35 , 78 , 99)
+print(type(t))
+
+
+# Python Operators
+#Basic operator in python
+num1=20
+num2=15
+a = num1+num2
+print(a)
+b = num1-num2
+print(b)
+c = num1*num2
+print(c)
+d = num1/num2
+print(d)
+e = num1%num2
+print(e)
+f = num1//num2
+print(f)
+
+
+#Logical and bitwise not operator on boolean
+#Logical not operator on boolean
+a = 1
+b = 0
+if not a:
+    print("Yes")
+if not b:
+    print("No")
+
+#bitwise not operator on boolean
+a = 0b1010
+c = ~a
+print(bin(c))
+
+# Ternary operator
+x = 10 
+
+if x == 10:
+    print("Yes")
+else:
+    print("No")    
+
+
+if x == 15:
+    print("Yes")
+else:
+    print("No")
+
+
+
+# Division operator in python
+a = 25
+b = 50
+c = 75
+print(a/b)
+print(b/c)
+print(c/a)
+
+
+# Operator Overloading in Python
+class Student: 
+
+ def __init__(self,m1,m2):
+   self.m1=m1
+   self.m2=m2
+
+ def __add__(self, other):
+  m1 = self.m1 + other.m1
+  m2 = self.m2 + other.m2
+  s3 = Student(m1 , m2)
+
+
+  return s3
+
+ def __gt__(self, other):
+  r1= self.m1 + self.m2
+  r2= other.m1 + other.m2
+  if r1 > r2:
+    return True
+  else:
+    return False
+
+
+
+s1 = Student(58,64)
+s2 = Student(60,65) 
+
+s3 = s1 + s2
+
+if s1 > s2:
+  print("s1 wins")
+else:
+  print("s2 wins")  
+
+
+
+# Any & all in python
+numbers = [10 , 64 , 77 , 98]
+
+even = lambda x: x % 2 == 0
+
+result = [even(number) for number in numbers]
+
+if any(result):
+   print(" The number is odd!")
+else:
+    print("No number is even!")
+if all(result):
+    print("All number are even!")
+
+
+
+# Inplace and standard operators in python
+x = 3
+print(x)
+x += 2
+print(x)
+# standard operators
+a = 15 
+b = 10 
+print(a*b)
+print(a/b)
+print(a+b)
+print(a-b)
+print(a//b)
+print(a%b)
+print(a**b)
+
+# Operator function in python | Set – 1
+a = 15
+b = 10
+import operator
+print(operator .add(15,10))
+print(operator .sub(15,10))
+print(operator .mul(15,10))
+print(operator .truediv(a,b))
+print(operator .floordiv(a,b))
+print(operator .pow(a,b))
+print(operator .mod(a,b))
+print(operator .lt(a, b))
+print(operator .le(a, b))
+print(operator .eq(a, b))
+print(operator .gt(a,b))
+print(operator .ge(a,b))
+print(operator .ne(a,b))
+
+
+
+# Inplace operator | Set -1
+#iadd() and iconcat()
+import operator
+x = operator.iadd(2,3);
+print("The value of after adding and assigning:",end="")
+print(x)
+y = "Hello"
+z = "World"
+y = operator.iconcat(y,z)
+print("The string after concatenation is :", end="")
+print(y)
+
+#isub() and #imul()
+import operator
+x = operator.isub(2,3);
+print("The value of after subtracting and assigning:",end="")
+print(x)
+x = operator.imul(2,3);
+print("The value of after multiplying and assigning:",end="")
+print(x)
+
+#itruediv() and imod()
+import operator
+x = operator.itruediv(10,5);
+print("The value of after dividing and assigning:",end="")
+print(x)
+x = operator.imod(10,6);
+print("The value of after modulus and assigning:",end="")
+print(x)
+
+# Logic Gates in Python
+# Logical And
+a = 5
+b = 3
+c = 2
+print(a>b and a>c)
+print(a>b and a<c)
+print(a<b and a>c)
+print(a<b and a<c)
+# Logical or
+a = 5
+b = 3
+c = 2
+print(a>b or a>c)
+print(a>b or a<c)
+print(a<b or a>c)
+print(a<b or a<c)
+# logical not
+a = 5
+b = 3
+print(not(a<b))
+print(not(a>b))
+
+
+# Python | a += b is not always a = a + b
+
+
+# Difference between == and is operator in Python
+# == operator
+num1=5
+num2=3
+print(num1 == num2)
+# is operator
+num1=10
+num2=10
+print(num1 is num2)
+
+# Python Membership and Identity Operators | in, not in, is, is not
+# Python Membership
+str1 = 'in' , 'not in' , 'is' , 'is not'
+print(str1)
+print("in" in str1)
+print("is" in str1)
+print("of" in str1)
+print("is not" in str1)
+# Identity Operators
+a = 12
+b = 12
+print(a is b)
+c = 12
+print(a is c)
+d = '10'
+print(b is d)
